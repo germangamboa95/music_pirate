@@ -117,8 +117,9 @@ def run():
         logger.warning("Usage: steal <mp3_file_path>")
         return 1
 
-    mp3_path = sys.argv[1]
+    youtube_url = sys.argv[1]
     loop = asyncio.get_event_loop()
+    mp3_path = download_song(youtube_url)
     return 0 if loop.run_until_complete(enrich_mp3_with_shazam(mp3_path)) else 1
 
 

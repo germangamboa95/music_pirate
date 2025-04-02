@@ -98,7 +98,7 @@ asyncio.run(download_and_enrich(youtube_url))
 To enable debug logging, set the `LOG_LEVEL` environment variable to `debug`:
 
 ```bash
-LOG_LEVEL=debug poetry run steal /path/to/your/song.mp3
+LOG_LEVEL=debug poetry run steal https://www.youtube.com/watch?v=-zHm77FkW3U
 ```
 
 ## Dependencies
