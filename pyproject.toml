@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "music-pirate"
+version = "0.1.1"
+description = ""
+authors = ["germangamboa95 <germangamboa95@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+yt-dlp = "^2025.2.19"
+shazamio = "^0.8.0"
+audioop-lts = "^0.2.1"
+eyed3 = "^0.9.7"
+requests = "^2.32.3"
+
+
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry.scripts]
+steal = "music_pirate.music_pirate:run"
