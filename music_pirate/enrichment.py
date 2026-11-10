@@ -96,16 +96,16 @@ def apply_metadata_to_mp3(mp3_file_path: str, track_data: Dict[str, Any]) -> boo
 async def get_track_info(audio_file_path: str) -> Optional[Dict[str, Any]]:
     """Recognize a song using ShazamIO and return enriched track information."""
     try:
-        shazam = Shazam()
-        recognition = await shazam.recognize(audio_file_path)
+        async with Shazam() as shazam:
+            recognition = await shazam.recognize(audio_file_path)
 
-        if not recognition or 'track' not in recognition:
-            logger.debug("No track recognized")
-            return None
+            if not recognition or 'track' not in recognition:
+                logger.debug("No track recognized")
+                return None
 
-        track_key = recognition['track']['key']
-        logger.debug(f"Track key found: {track_key}")
-        return await shazam.track_about(track_key)
+            track_key = recognition['track']['key']
+            logger.debug(f"Track key found: {track_key}")
+            return await shazam.track_about(track_key)
     except Exception as e:
         logger.debug(f"Recognition error: {e}")
         return None

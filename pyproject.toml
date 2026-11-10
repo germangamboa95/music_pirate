@@ -1,25 +1,26 @@
-[tool.poetry]
+[project]
 name = "music-pirate"
 version = "0.1.1"
 description = ""
-authors = ["germangamboa95 <germangamboa95@gmail.com>"]
+authors = [{ name = "germangamboa95", email = "germangamboa95@gmail.com" }]
 readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.13"
+dependencies = [
+    "audioop-lts>=0.2.2",
+    "eyed3>=0.9.9",
+    "requests>=2.34.2",
+    "shazamio>=0.9.0",
+    "yt-dlp[default]>=2026.10.26",
+]
 
-[tool.poetry.dependencies]
-python = "^3.13"
-yt-dlp = "^2025.2.19"
-shazamio = "^0.8.0"
-audioop-lts = "^0.2.1"
-eyed3 = "^0.9.7"
-requests = "^2.32.3"
-
-
-
+[project.scripts]
+steal = "music_pirate.music_pirate:run"
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["uv_build>=0.9.7,<0.14"]
+build-backend = "uv_build"
 
-
-[tool.poetry.scripts]
-steal = "music_pirate.music_pirate:run"
+[tool.uv.build-backend]
+module-root = ""

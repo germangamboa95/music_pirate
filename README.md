@@ -23,8 +23,8 @@ Music Pirate is a Python tool that helps you download songs from YouTube and aut
 git clone https://github.com/username/music-pirate.git
 cd music-pirate
 
-# Install dependencies with Poetry
-poetry install
+# Install dependencies with uv
+uv sync
 
 ```
 
@@ -35,7 +35,7 @@ poetry install
 To enrich an existing MP3 file with metadata:
 
 ```bash
-poetry run steal <youtube-url>
+uv run steal <youtube-url>
 ```
 
 ## Debug Mode
@@ -43,14 +43,14 @@ poetry run steal <youtube-url>
 To enable debug logging, set the `LOG_LEVEL` environment variable to `debug`:
 
 ```bash
-LOG_LEVEL=debug poetry run steal https://www.youtube.com/watch?v=-zHm77FkW3U
+LOG_LEVEL=debug uv run steal https://www.youtube.com/watch?v=-zHm77FkW3U
 ```
 
 ## Dependencies
 
-All dependencies are managed through Poetry and specified in the `pyproject.toml` file:
+All dependencies are managed through [uv](https://docs.astral.sh/uv/) and specified in the `pyproject.toml` file (pinned in `uv.lock`):
 
-- Python 3.7+
+- Python 3.13+
 - yt-dlp
 - eyed3
 - shazamio

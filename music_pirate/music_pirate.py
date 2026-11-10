@@ -21,9 +21,8 @@ def run():
         return 1
 
     youtube_url = sys.argv[1]
-    loop = asyncio.get_event_loop()
     mp3_path = download_song(youtube_url)
-    return 0 if loop.run_until_complete(enrich_mp3_with_shazam(mp3_path)) else 1
+    return 0 if asyncio.run(enrich_mp3_with_shazam(mp3_path)) else 1
 
 
 if __name__ == "__main__":
